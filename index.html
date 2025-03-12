@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link href="./src/output.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Article preview component</title>
+</head>
+<body class="bg-lightGrayishBlue min-h-screen flex font-manrope items-center justify-center">
+
+  <!--Main Landmark-->
+  <main class=" flex sm:flex-row xs:flex-col bg-white xs:max-w-xs sm:max-w-[731px] rounded-lg sm:h-[282px] xs:h-fit" aria-labelledby="card-image">
+      <img src="./images/drawers.jpg" alt="styled furniture" class="sm:w-2xs sm:h-full xs:h-[200px] sm:rounded-l-lg xs:rounded-t-lg object-cover  object-left ">
+
+      <!--Section for Content-->
+      <section class="flex flex-col sm:mt-8 xs:mt-9 sm:mr-13 sm:ml-10 xs:mx-8">
+      <header aria-labelledby="card-content">
+      <h1 id="card-content" class="sm:text-xl xs:text-base/6 font-bold sm:tracking-wide text-darkGrayishBlue pb-4">Shift the overall look and feel by adding these wonderful 
+      touches to furniture in your home</h1></header>
+      <p class="font-semibold text-desaturatedDarkBlue text-tiny sm:mb-5 xs:mb-8">Ever been in a room and felt like something was missing? Perhaps 
+      it felt slightly bare and uninviting. I’ve got some simple tips 
+      to help you make any room feel complete.</p>
+
+    <!--Section for Author and Social Share-->
+    <footer class="flex flex-row relative xs:mb-5" aria-labelledby="author-block">
+      <img src="./images/avatar-michelle.jpg" alt="author avatar" class="w-10 h-10 rounded-full">
+      <div id="author-block" class="flex flex-col ml-4 mt-0.5">
+      <p class="text-tiny font-extrabold text-darkGrayishBlue">Michelle Appleton</p>
+      <p class="text-tiny font-bold text-grayishBlue/70">28 Jun 2020</p>
+      </div>
+
+      <!-- Share button and Hidden Content-->
+    <div class="relative ml-auto" role="complementary">
+      <button id="share" class="bg-lightGrayishBlue/70 rounded-full w-8 h-8 flex items-center justify-center mt-0.5 hover:cursor-pointer pointer-events-auto duration-500 text-grayBlue xs:absolute xs:z-20 xs:right-0 translate-y-3">
+        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="13"><path fill="currentColor" d="M15 6.495L8.766.014V3.88H7.441C3.33 3.88 0 7.039 0 10.936v2.049l.589-.612C2.59 10.294 5.422 9.11 8.39 9.11h.375v3.867L15 6.495z"/></svg>
+      </button>
+      <!--Hidden content positioned above the button-->
+      <div id="hiddenContent" class="absolute sm:bottom-full sm:left-1/2 sm:transform sm:-translate-x-1/2 sm:mb-6 sm:w-[247px] sm:h-14 sm:px-6  bg-darkGrayishBlue sm:rounded-lg flex items-center sm:justify-around z-10 shadow-xl xs:pl-7 xs:w-xs xs:h-16 xs:-right-8 xs:rounded-b-lg hidden duration-500">
+        <div class="sm:absolute sm:bottom-0 sm:transform sm:-translate-x-1/2 sm:translate-y-1/2 sm:rotate-45 w-4 h-4 bg-darkGrayishBlue"></div> 
+        <p class="font-semibold text-xs text-grayishBlue pr-5 tracking-[5px]">SHARE</p>
+      <div class="flex flex-row gap-4">
+        <img src="./images/icon-facebook.svg">
+        <img src="./images/icon-twitter.svg">
+        <img src="./images/icon-pinterest.svg">
+      </div>
+    </div>
+  </div>
+</footer> 
+  </section> 
+</main>
+<script>
+  const shareButton = document.getElementById('share');
+  const shareContent = document.getElementById('hiddenContent');
+
+  shareButton.addEventListener('click', function() {
+    const isActive = shareButton.classList.contains('bg-desaturatedDarkBlue');
+
+    shareButton.classList.replace(
+      isActive ? 'bg-desaturatedDarkBlue': 'bg-lightGrayishBlue/70',
+      isActive ? 'bg-lightGrayishBlue/70' : 'bg-desaturatedDarkBlue');
+
+    shareButton.classList.replace(
+      isActive ? 'text-white' : 'text-grayBlue',
+      isActive ? 'text-grayBlue' : 'text-white');
+
+    shareContent.classList.toggle('hidden');
+  });
+
+</script>
+</body>
+</html>
